@@ -48,6 +48,11 @@ app.post('/new', urlencodedParser, (req, res)=> {
     }
 })
 
+// Search contacts
+app.get('/search', (req, res)=> {
+    res.render('search');
+})
+
 
 app.listen(port, (err)=>{
     if(err){
