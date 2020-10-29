@@ -53,6 +53,25 @@ app.get('/search', (req, res)=> {
     res.render('search');
 })
 
+app.post('/search', urlencodedParser, (req, res)=> {
+    if(contacts.some(e => e.name === req.body.name)){
+        let index=-1;
+        for(let i=0; i<contacts.length; i++){
+            if(contacts[i].name === req.body.name){
+                index=i;
+                break;
+            }
+        }
+        if(index===-1){
+            res.send('error');
+        }else{
+            res.send(`<span><b>Name:</b> ${contacts[index].name}, <b>Phone Number:</b> ${contacts[index].phoneNum}</span>`);
+        }
+    }else{
+        res.send('Contact Not Exist')
+    }
+})
+
 
 app.listen(port, (err)=>{
     if(err){
