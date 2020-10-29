@@ -18,6 +18,14 @@ app.get('/whos-there', (req, res)=>{
     res.send('Hi Trax! This is Jane :)');
 })
 
+app.get('/contacts', (req, res)=> {
+    res.send(
+        contacts.map(contact =>
+            `<span><b>Name:</b> ${contact.name}, <b>Phone Number:</b> ${contact.phoneNum}</span><br>`
+        ).join('')
+    );
+})
+
 app.listen(port, (err)=>{
     if(err){
         console.log('ERROR', err);
