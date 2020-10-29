@@ -2,8 +2,16 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+app.set('view engine', 'ejs');
+
+let contacts = [
+    {name: "John", phoneNum: "0523344556"},
+    {name: "Alex", phoneNum: "0549191333"},
+    {name: "Anna", phoneNum: "0535565556"}
+]
+
 app.get("/", (req, res)=> {
-    res.send('hello world');
+    res.render('index');
 })
 
 app.get('/whos-there', (req, res)=>{
