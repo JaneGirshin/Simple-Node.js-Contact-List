@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
@@ -25,6 +26,12 @@ app.get('/contacts', (req, res)=> {
         ).join('')
     );
 })
+
+app.get('/new', (req, res)=> {
+    res.render('new');
+})
+
+
 
 app.listen(port, (err)=>{
     if(err){
