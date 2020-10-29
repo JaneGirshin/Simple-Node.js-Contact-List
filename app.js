@@ -6,6 +6,10 @@ app.get("/", (req, res)=> {
     res.send('hello world');
 })
 
+app.get('/whos-there', (req, res)=>{
+    res.send('Hi Trax! This is Jane :)');
+})
+
 app.listen(port, (err)=>{
     if(err){
         console.log('ERROR', err);
