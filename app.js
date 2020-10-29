@@ -44,7 +44,7 @@ app.post('/new', urlencodedParser, (req, res)=> {
         res.send('Name Already Exist');
     }else{
         contacts.push({name:req.body.name, phoneNum:req.body.phoneNum});
-        res.send('Contact Added!');
+        res.render('added');
     }
 })
 
